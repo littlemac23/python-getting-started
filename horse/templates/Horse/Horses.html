@@ -1,0 +1,28 @@
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+
+<center>
+  <h1  style="font-size: 50px"> Your Horses </h1>
+   <p style="font-size: 26px" >Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+  <br/><br/>
+
+  <table class="table table-bordered"  >
+    {% for i in horses %}
+        <tr class="table-secondary">
+
+          <td><center><a href = "{% url 'displayHorse' i.id %}">{{ i.name }}</a></center></td>
+          <td align="right"><center><a href = "{% url 'edit' i.id %}"  class="btn btn-outline-secondary">edit</a></center></td>
+          <td align="right"><center><a href = "{% url 'sell' i.id %}"  class="btn btn-outline-secondary">sell</a></center></td>
+        </tr>
+    {% endfor %}
+  </table>
+
+</center>
+
+{% endif %}
+{% endblock %}

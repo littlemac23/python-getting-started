@@ -1,0 +1,21 @@
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<body>
+  <h1 style="font-size:  50px" align="center" >Welcome, {{ user.get_username }}.</h1>
+  {% for expense in expense_list %}
+  <strong>{{expense}}</strong>
+  <ul>
+    <li>Winnings: {{expense.total}}</li>
+
+    <li>Date of race: {{expense.month}}</li>
+    <li>Finish in race: {{expense.year}}</li>
+    <li>Type of race: {{expense.decription}}</li>
+
+  </ul>
+  <br/>
+  {% endfor %}
+  {% endblock %}

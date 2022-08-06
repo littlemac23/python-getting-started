@@ -1,0 +1,45 @@
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+
+<center>
+  <h1> Add Horse to Database</h1>
+  <br/><br/>
+  {% if submitted%}
+    Your Horse was added Succefully
+    <ul>
+        {% for i in horsedata %}
+      <li>
+      {{i.name}}
+      </li>
+      {% endfor %}
+    </ul>
+
+  {% else %}
+    <form action="" method="post">
+      {% csrf_token %}
+      {% autoescape off %}
+      {{form.as_p }}
+      {% endautoescape %}
+
+      <input type="submit" class="btn btn-secondary" value="Submit">
+
+    </form>
+
+
+  {% endif %}
+
+</center>
+
+{% else%}
+<h1>Sorry! You Must be logged in to View This Page...</h1>
+
+<a href="{% url 'login' %}">Login</a>
+  {% endif %}
+
+
+  {% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<center>
+  <h1  style="font-size: 50px"> {{horse.name}}  </h1>
+  <br/><br/>
+  <table class="table table-bordered"  >
+        <tr class="table-secondary">
+            <br/><br/>
+            <p  style="font-size: 30px"> name : {{horse.name}}  </p>
+            <br/><br/>
+            <p  style="font-size: 30px"> acquisitionDate : {{horse.acquisitionDate}}  </p>
+            <br/><br/>
+            <p  style="font-size: 30px"> totalAcquisitionAmount : {{horse.totalAcquisitionAmount}}  </p>
+            <br/><br/>
+            <p  style="font-size: 30px"> type : {{horse.type}}  </p>
+            <br/><br/>
+            <p  style="font-size: 30px"> place : {{horse.place}}  </p>
+            <br/><br/>
+            <p  style="font-size: 30px"> user : {{horse.user}}  </p>
+        </tr>
+  </table>
+</center>
+
+
+{% endif %}
+{% endblock %}
